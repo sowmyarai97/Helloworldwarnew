@@ -8,7 +8,7 @@ pipeline {
         stage('Clone Step') {
             steps {
                 sh 'rm -rf Helloworldwarnew'
-                sh 'git clone https://github.com/San0705/Helloworldwarnew.git'
+                sh 'git clone https://github.com/sowmyarai97/Helloworldwarnew.git'
             }
         }
         stage('Build Docker Image') {
@@ -19,8 +19,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 withDockerRegistry([ credentialsId: "docker-hub-creds", url:""]) {
-                    sh 'docker tag mvn_docker san0705/mvn_docker:$BUILD_NUMBER'
-                    sh 'docker push san0705/mvn_docker:$BUILD_NUMBER' 
+                    sh 'docker tag mvn_docker sowmyarai97/mvn_docker:$BUILD_NUMBER'
+                    sh 'docker push sowmyarai97/mvn_docker:$BUILD_NUMBER' 
                 }
             }
         }
